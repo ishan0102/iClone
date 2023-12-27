@@ -14,7 +14,7 @@ FROM
     JOIN chat_message_join ON chat.ROWID = chat_message_join.chat_id
     JOIN message ON chat_message_join.message_id = message.ROWID
 WHERE
-    chat.chat_identifier = ''
+    chat.chat_identifier = '+12148434974'
     AND message.is_from_me = false
 ORDER BY
     message_date ASC;
