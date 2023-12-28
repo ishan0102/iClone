@@ -1,4 +1,11 @@
+# Environment
 .vscode/
 venv/
+
+# Data
 chat.db*
-*.json
+*.jsonl
+
+# Models
+models/*
+!*/.gitkeep
