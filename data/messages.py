@@ -35,20 +35,18 @@ for row in cursor:
     if my_message and other_person_message:  # Skip if either message is empty
         my_message = preprocess_message(my_message)
         other_person_message = preprocess_message(other_person_message)
-        # Skip if either message exceeds a character limit (e.g., 500 characters)
-        if len(my_message) <= 500 and len(other_person_message) <= 500:
+        if len(my_message) <= 100 and len(other_person_message) <= 100:  # Skip if either message is too long
             results.append((my_message, other_person_message))
 
-# Split into train, valid, test (80/10/10)
-train_size = int(0.8 * len(results))
-valid_size = int(0.1 * len(results))
-test_size = len(results) - train_size - valid_size
+# Split into train and valid sets (90/10)
+train_size = int(0.9 * len(results))
+valid_size = len(results) - train_size
 datasets = [
     (results[:train_size], "train"),
-    (results[train_size : train_size + valid_size], "valid"),
-    (results[train_size + valid_size :], "test"),
+    (results[train_size:], "valid"),
 ]
 
+# Save the datasets
 for dataset, name in datasets:
     with open(f"data/{name}.jsonl", "w") as f:
         for row in dataset:
