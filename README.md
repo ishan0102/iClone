@@ -4,6 +4,12 @@ Clone your friends by finetuning Mistral-7B on your iMessage chat history.
 - Uses Apple's MLX framework for GPU acceleration
 - All data is fetched from and stays on your machine
 
+## Todo
+- Create a basic CLI that lets you choose a chat to finetune on
+- Group consecutive messages to create better training data structure
+  - Include system prompt, ~5 messages, and prediction of the next message as a single training example
+- Trim down the Apple starter code to only what's necessary
+
 ## Setup
 This copies your iMessage database to the `db` directory to avoid operating on the original file. This file might be kind of big, mine is ~1.5GB.
 ```bash
@@ -34,3 +40,5 @@ python convert.py \
 - https://twitter.com/iamgingertrash/status/1628495957632614400
 - https://github.com/1rgs/MeGPT
 - https://spin.atomicobject.com/search-imessage-sql
+- https://www.izzy.co/blogs/robo-boys.html
+- https://edwarddonner.com/2024/01/02/fine-tuning-an-llm-on-240k-text-messages/
