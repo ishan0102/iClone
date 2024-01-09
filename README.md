@@ -35,6 +35,17 @@ python convert.py \
     --mlx-model models/mlx-mistral-7B/
 ```
 
+Generate some messages:
+```bash
+python lora.py --model <path_to_model> \
+               --adapter-file <path_to_adapters.npz> \
+               --num-tokens 50 \
+               --prompt "table: 1-10015132-16
+columns: Player, No., Nationality, Position, Years in Toronto, School/Club Team
+Q: What is terrence ross' nationality
+A: "
+```
+
 ## References
 - https://github.com/ml-explore/mlx-examples/tree/main/lora
 - https://twitter.com/iamgingertrash/status/1628495957632614400
@@ -42,3 +53,4 @@ python convert.py \
 - https://spin.atomicobject.com/search-imessage-sql
 - https://www.izzy.co/blogs/robo-boys.html
 - https://edwarddonner.com/2024/01/02/fine-tuning-an-llm-on-240k-text-messages/
+- https://github.com/gavi/mlx-whatsapp

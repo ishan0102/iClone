@@ -5,7 +5,6 @@ import sqlite3
 
 def preprocess_message(text):
     text = re.sub(r"http\S+", "<URL>", text)  # Replace URLs with a placeholder
-    text = re.sub(r"[\U00010000-\U0010ffff]", "<EMOJI>", text)  # Replace emojis with a placeholder
     text = text.replace("\ufffc", "<ATTACHMENT>")  # Replace non-text content placeholder
     text = (
         text.replace("\u2019", "'").replace("\u2018", "'").replace("\u201c", '"').replace("\u201d", '"')
